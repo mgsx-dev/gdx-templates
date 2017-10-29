@@ -1,0 +1,8 @@
+files:
+  - "src/SketchExample.java.erb:src/$(sketchName).java"
+folders:
+  - "src:src/$(packagePath)"
+defaults:
+  app: gdx-sketch-example
+  sketch: SketchExample
+  package: net.mgsx.sketch.example
