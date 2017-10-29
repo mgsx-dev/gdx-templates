@@ -22,7 +22,7 @@ files:
 folders:
   - "core/src/core:core/src/$(packagePath)"
   - "android/src:android/src/$(packagePath)"
-  - "desktop/src:desktop/src/$(packagePath)"
+  - "desktop/src/desktop:desktop/src/$(packagePath)"
   - "html/src:html/src/$(packagePath)"
   - "html/src/client:html/src/$(packagePath)/client"
 defaults:
