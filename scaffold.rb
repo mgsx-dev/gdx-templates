@@ -64,11 +64,11 @@ def parse_template(template_path)
     end
 
     (Dir.glob("#{template_path}/**/*").to_a + Dir.glob("#{template_path}/**/.*").to_a).each do |file|
-        relative_file = File.basename(file, template_path)
+        relative_file = file.split(template_path + '/', 2).last
         if relative_file == '.scaffold.yml' or File.directory?(file) then
             # skip
         elsif File.extname(file) == ".erb" then
-            target = File.basename(relative_file, File.extname(file))
+            target = File.dirname(relative_file) + '/' + File.basename(relative_file, File.extname(file))
             File.read(file).scan(/<%= *(\w+) *%>/) do |varName, *_|
                 result[:vars][varName] = nil
             end
@@ -104,8 +104,8 @@ def do_template(template, infolder, outfolder, vars)
     end
 
     template[:files].each do |src,dst|
-        dir = File.basename(File.dirname(src), infolder)
-        dir = "" if dir == File.basename(infolder)
+        dir = File.dirname(src.split(infolder + '/', 2).last)
+        dir = "" if dir == File.basename(infolder) || dir == "."
         outdir = if template[:folders][File.dirname(src)] then
             template[:folders][File.dirname(src)] + "/"
         else
@@ -138,7 +138,7 @@ when 'list'
 when 'help'
     config = parse_template(template_path)
     inject_hash config[:vars], config[:defaults]
-    help = [__FILE__, 'gen', template_path, output_path||'out']
+    help = [__FILE__, 'generate', template_path, output_path||'out']
     config[:vars].each do |k,v|
         help << "#{k}=#{vars[k]||v||'value'}"
     end
