@@ -1,0 +1,16 @@
+
+buildscript {
+	repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        jcenter()
+    }
+    dependencies {
+    	classpath "com.badlogicgames.gdx:gdx-tools:1.9.6"
+    }
+}
+
+// TODO doc here
+
+
