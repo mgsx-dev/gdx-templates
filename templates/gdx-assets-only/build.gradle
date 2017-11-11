@@ -1,29 +1,12 @@
-
 buildscript {
-	repositories {
-        mavenLocal()
-        mavenCentral()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        jcenter()
-    }
-    dependencies {
-    	classpath "com.badlogicgames.gdx:gdx-tools:1.9.6"
-    	classpath "com.badlogicgames.gdx:gdx-backend-lwjgl:1.9.6"
-    	classpath "com.badlogicgames.gdx:gdx-platform:1.9.6:natives-desktop"
-    }
+	apply from: 'gradle/tiled.gradle'
 }
 
-apply plugin: 'java'
 
-def tiledMapPacker(src, dst){
+/** usage example :
 
-	task "tiledMapPacker_$src"(type: JavaExec){
-		classpath = buildscript.configurations.classpath
-		main = 'com.badlogic.gdx.tiledmappacker.TiledMapPacker'
-		args = ["$projectDir/$src", dst, "--strip-unused", "--combine-tilesets", "-v"]
-	}
+task buildAssets(){}
 
-}
+buildAssets.dependsOn += tiledMapPacker("src/maps", "$projectDir/../android/assets/maps")
 
-// example :
-// tiledMapPacker("src/maps", "$buildDir/maps")
+*/
