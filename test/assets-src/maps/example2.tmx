@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="32" height="32" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="grass" tilewidth="32" tileheight="32" tilecount="18" columns="3">
+  <image source="tiles/grass.png" width="96" height="192"/>
+  <terraintypes>
+   <terrain name="grass" tile="10"/>
+  </terraintypes>
+  <tile id="1" terrain="0,0,0,"/>
+  <tile id="2" terrain="0,0,,0"/>
+  <tile id="4" terrain="0,,0,0"/>
+  <tile id="5" terrain=",0,0,0"/>
+  <tile id="6" terrain=",,,0"/>
+  <tile id="7" terrain=",,0,0"/>
+  <tile id="8" terrain=",,0,"/>
+  <tile id="9" terrain=",0,,0"/>
+  <tile id="10" terrain="0,0,0,0"/>
+  <tile id="11" terrain="0,,0,"/>
+  <tile id="12" terrain=",0,,"/>
+  <tile id="13" terrain="0,0,,"/>
+  <tile id="14" terrain="0,,,"/>
+  <tile id="15" terrain="0,0,0,0"/>
+  <tile id="16" terrain="0,0,0,0"/>
+  <tile id="17" terrain="0,0,0,0"/>
+ </tileset>
+ <tileset firstgid="19" name="watergrass" tilewidth="32" tileheight="32" tilecount="18" columns="3">
+  <image source="tiles/watergrass.png" width="96" height="192"/>
+  <terraintypes>
+   <terrain name="water-grass" tile="10"/>
+  </terraintypes>
+  <tile id="1" terrain="0,0,0,"/>
+  <tile id="2" terrain="0,0,,0"/>
+  <tile id="4" terrain="0,,0,0"/>
+  <tile id="5" terrain=",0,0,0"/>
+  <tile id="6" terrain=",,,0"/>
+  <tile id="7" terrain=",,0,0"/>
+  <tile id="8" terrain=",,0,"/>
+  <tile id="9" terrain=",0,,0"/>
+  <tile id="10" terrain="0,0,0,0"/>
+  <tile id="11" terrain="0,,0,"/>
+  <tile id="12" terrain=",0,,"/>
+  <tile id="13" terrain="0,0,,"/>
+  <tile id="14" terrain="0,,,"/>
+  <tile id="15" terrain="0,0,0,0"/>
+  <tile id="16" terrain="0,0,0,0"/>
+  <tile id="17" terrain="0,0,0,0"/>
+ </tileset>
+ <tileset firstgid="37" name="signs" tilewidth="32" tileheight="32" tilecount="6" columns="3">
+  <image source="tiles/signs.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="43" name="bridges" tilewidth="32" tileheight="32" tilecount="42" columns="6">
+  <image source="tiles/bridges.png" width="192" height="224"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztlFkLwkAMhBfFcz3aoljP1ur//41mMIOhSH3J4ssODG1F9ks2RwhZWVm/NBPP1Ys/8JfiKK7EExPLkD3jBL9QfjTmb3iWJkZ8r5zYuPupnn8UnwZ81v9Vjvxl+OR2ET/VV/FDjfdOfNAYvPmVxtCI2y/em1huwff+2XulnhvNN2vdaAxdAv5avBGPw6fnyOa9wKjNNQGfsnUozDvvAnzmH535nAHOF5k2lpR85h57T9Yfc1mHNP0HsQdo9AJ7gHPJebwF3/mzu59GLZg39k6t/J347szn/rG71nKRM+qOncS7TzH/VY8LJu8cebfhnTvYI/HWiY/aj/Vc9jj3reXa3ZBq9vv7l/myD5E3+tMrd8vn3rV7jzzam0v15y81LysrK71eUucSPw==
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzTsKgDAUBdG3ophChXzASiv3v57c1jrgRZwDU08EAHzPZf7f5j+eklpUNv1Xtand9K+qqW76413F/D/M//PnfwCYMQD6vQNy
+  </data>
+ </layer>
+</map>
