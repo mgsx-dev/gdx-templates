@@ -13,6 +13,7 @@ version = '0.0.1-SNAPSHOT'
 ext {
     appName = "<%= appName %>"
     gdxVersion = '1.9.6'
+    junitVersion = '4.12'
     mainClassName = "<%= packageName %>.<%= appName %>"
     assetsDir = new File("assets");
 }
@@ -41,6 +42,8 @@ dependencies {
     compile "com.badlogicgames.gdx:gdx:$gdxVersion"
     compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
     compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    
+    testCompile "junit:junit:$junitVersion"
 }
 
 sourceCompatibility = 1.6
