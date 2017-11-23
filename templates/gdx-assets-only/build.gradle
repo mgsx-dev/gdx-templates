@@ -7,6 +7,11 @@ buildscript {
 
 task buildAssets(){}
 
+// TILED :
 buildAssets.dependsOn += tiledMapPacker("src/maps", "$projectDir/../android/assets/maps")
+
+// GIMP :
+buildAssets.dependsOn += gimpExport("src/gimpBaseFileNameWithoutExtension", "../android/assets/exported.png")
+buildAssets.dependsOn += gimpExportLayers("src/gimpBaseFileNameWithoutExtension", "../android/assets/existingFolder")
 
 */

@@ -25,3 +25,10 @@ supported tools :
 * hiero
 * atlas packer
 * tiled map packer
+* gimp
+
+### TODO's
+
+* HTML5 dist as zip with WEB-INF exclusion
+* HTML5 final template and debug template
+* HTML5 page title
