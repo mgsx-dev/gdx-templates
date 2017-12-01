@@ -13,6 +13,7 @@ buildscript {
 	apply from: '../templates/gdx-assets-only/gradle/raw.gradle'
 	apply from: '../templates/gdx-assets-only/gradle/gimp.gradle'
 	apply from: '../templates/gdx-assets-only/gradle/inkscape.gradle'
+	apply from: '../templates/gdx-assets-only/gradle/blender.gradle'
 }
 
 version = '0.0.1-SNAPSHOT'
@@ -37,17 +38,25 @@ tiledMapPacker("assets-src/maps", "$projectDir/assets/maps")
 
 def assetsTasks = []
 
-assetsTasks << gdxHieroExport("assets-src/skins/hud-skin/default.hiero", "$buildDir/skins/hud-skin/unpacked")
+def assetsPrepareTasks = []
 
-assetsTasks << gdxRawCopy("assets-src/skins/hud-skin", "$buildDir/skins/hud-skin/unpacked")
+assetsPrepareTasks << gdxHieroExport("assets-src/skins/hud-skin/default.hiero", "$buildDir/skins/hud-skin/unpacked")
 
-assetsTasks << gimpExportLayers("assets-src/skins/hud-skin/bt.xcf", "$buildDir/skins/hud-skin/unpacked")
+assetsPrepareTasks << gdxRawCopy("assets-src/skins/hud-skin", "$buildDir/skins/hud-skin/unpacked")
 
-assetsTasks << inkscapeExport("assets-src/skins/hud-skin/panel.9.svg", "$buildDir/skins/hud-skin/unpacked")
+assetsPrepareTasks << gimpExportLayers("assets-src/skins/hud-skin/bt.xcf", "$buildDir/skins/hud-skin/unpacked")
+
+assetsPrepareTasks << inkscapeExport("assets-src/skins/hud-skin/panel.9.svg", "$buildDir/skins/hud-skin/unpacked")
 
 def packTask = gdxAtlasPack("$buildDir/skins/hud-skin/unpacked", "assets/skins/hud-skin")
 
-packTask.dependsOn += assetsTasks
+packTask.dependsOn += assetsPrepareTasks
+
+assetsTasks << packTask
+
+assetsTasks << blenderRenderFrame("assets-src/bg.blend", 1, "$projectDir/assets/bg.png")
+
+task generateAssets(dependsOn: assetsTasks, group: "gdx"){}
 
 apply plugin: "eclipse"
 

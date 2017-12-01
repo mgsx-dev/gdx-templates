@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -42,6 +43,8 @@ public class AssetsSkinExample extends ApplicationAdapter
 		
 		subTable.add("This is table").fill().row();
 		subTable.add("And this is content !").fill().row();
+		
+		subTable.add(new Image(new Texture(Gdx.files.internal("assets/bg.png")))).size(100, 100).row();
 		
 		stage.addActor(table);
 	}
