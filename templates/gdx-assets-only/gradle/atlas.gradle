@@ -19,7 +19,7 @@ def gdxAtlasPack(src, dst){
 	def dstFile = new File("$projectDir/$dst")
 	def dstDir = dstFile.parent
 	def dstName = dstFile.name
-	def copyTask = task "gdxAtlasCopy_$dst"(type: Copy){
+	def copyTask = task "gdxAtlasCopy_$dst"(type: Copy, group: "gdx"){
 		from(src){
 			include "*.fnt"
 		}

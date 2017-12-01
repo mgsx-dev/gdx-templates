@@ -6,8 +6,10 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class AssetsSkinExample extends ApplicationAdapter 
 {
@@ -28,7 +30,9 @@ public class AssetsSkinExample extends ApplicationAdapter
 		skin = new Skin(Gdx.files.internal("assets/skins/hud-skin.json"));
 		Table table = new Table(skin);
 		table.setFillParent(true);
-		table.add("Hello LD40!").expand().center();
+		table.add("Hello LD40!").row();
+		table.add(new TextButton("Button", skin)).row();
+		table.add(new Image(skin.getDrawable("noise"))).row();
 		stage.addActor(table);
 	}
 
