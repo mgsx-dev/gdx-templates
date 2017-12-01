@@ -33,6 +33,7 @@ public class AssetsSkinExample extends ApplicationAdapter
 		table.add("Hello LD40!").row();
 		table.add(new TextButton("Button", skin)).row();
 		table.add(new Image(skin.getDrawable("noise"))).row();
+		table.add(new TextButton("Button", skin, "blue")).row();
 		stage.addActor(table);
 	}
 

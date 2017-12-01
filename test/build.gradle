@@ -11,6 +11,7 @@ buildscript {
 	apply from: '../templates/gdx-assets-only/gradle/hiero.gradle'
 	apply from: '../templates/gdx-assets-only/gradle/atlas.gradle'
 	apply from: '../templates/gdx-assets-only/gradle/raw.gradle'
+	apply from: '../templates/gdx-assets-only/gradle/gimp.gradle'
 }
 
 version = '0.0.1-SNAPSHOT'
@@ -39,6 +40,7 @@ assetsTasks << gdxHieroExport("assets-src/skins/hud-skin/default.hiero", "$build
 
 assetsTasks << gdxRawCopy("assets-src/skins/hud-skin", "$buildDir/skins/hud-skin/unpacked")
 
+assetsTasks << gimpExportLayers("assets-src/skins/hud-skin/bt.xcf", "$buildDir/skins/hud-skin/unpacked")
 
 def packTask = gdxAtlasPack("$buildDir/skins/hud-skin/unpacked", "assets/skins/hud-skin")
 

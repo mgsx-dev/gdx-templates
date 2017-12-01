@@ -25,10 +25,11 @@ def gdxAtlasPack(src, dst){
 		}
 		into dstDir
 	}
-	task "gdxAtlasPack_$dst"(group: "gdx", dependsOn: copyTask){
+	task "gdxAtlasPack_$dst"(group: "gdx"){
 		doLast{
 			new File(dstDir).mkdirs()
 			com.badlogic.gdx.tools.texturepacker.TexturePacker.process("$srcDir/", "$dstDir/", "$dstName")
+			copyTask.execute()
 		}
 		// TODO update when : compare all files in src and atlas 
 	}

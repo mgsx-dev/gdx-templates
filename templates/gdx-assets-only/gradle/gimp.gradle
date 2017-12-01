@@ -17,8 +17,8 @@ def gimpExport(src, dst){
 		def script = """\
 import gimpfu
 
-infile = "$projectDir/${src}.xcf"
-outfile = "$projectDir/$dst"
+infile = "$projectDir/$src"
+outfile = "$dst"
 
 img = pdb.gimp_file_load(infile, infile)
 
@@ -43,8 +43,8 @@ def gimpExportLayers(src, dst){
 		def script = """\
 import gimpfu
 
-filename = "$projectDir/${src}.xcf"
-outdir = "$projectDir/$dst"
+filename = "$projectDir/$src"
+outdir = "$dst"
 			
 img = pdb.gimp_file_load(filename, filename)
 			
