@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class AssetsSkinExample extends ApplicationAdapter 
 {
@@ -25,7 +26,7 @@ public class AssetsSkinExample extends ApplicationAdapter
 	
 	@Override
 	public void create () {
-		stage = new Stage();
+		stage = new Stage(new ScreenViewport());
 		Gdx.input.setInputProcessor(stage);
 		skin = new Skin(Gdx.files.internal("assets/skins/hud-skin.json"));
 		Table table = new Table(skin);
@@ -34,6 +35,14 @@ public class AssetsSkinExample extends ApplicationAdapter
 		table.add(new TextButton("Button", skin)).row();
 		table.add(new Image(skin.getDrawable("noise"))).row();
 		table.add(new TextButton("Button", skin, "blue")).row();
+		
+		Table subTable = new Table(skin);
+		subTable.setBackground("panel");
+		table.add(subTable).row();
+		
+		subTable.add("This is table").fill().row();
+		subTable.add("And this is content !").fill().row();
+		
 		stage.addActor(table);
 	}
 
