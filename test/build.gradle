@@ -8,6 +8,8 @@ buildscript {
     }
 
 	apply from: '../templates/gdx-assets-only/gradle/tiled.gradle'
+	apply from: '../templates/gdx-assets-only/gradle/hiero.gradle'
+	apply from: '../templates/gdx-assets-only/gradle/atlas.gradle'
 }
 
 version = '0.0.1-SNAPSHOT'
@@ -29,6 +31,11 @@ repositories {
 
 
 tiledMapPacker("assets-src/maps", "$projectDir/assets/maps")
+
+gdxHieroExport("assets-src/skins/hud-skin/default.hiero", "$buildDir/skins/hud-skin/unpacked")
+
+gdxAtlasPack("$buildDir/skins/hud-skin/unpacked", "assets/skins/hud-skin")
+
 
 apply plugin: "eclipse"
 

@@ -21,7 +21,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-public class SketchExample extends ApplicationAdapter 
+public class AssetsTiledExample extends ApplicationAdapter 
 {
 	public static final boolean useOriginal = false;
 	public static final boolean filtering = true;
@@ -31,7 +31,7 @@ public class SketchExample extends ApplicationAdapter
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.width = 640;
 		config.height = 480;
-		new LwjglApplication(new SketchExample(), config);
+		new LwjglApplication(new AssetsTiledExample(), config);
 	}
 	
 	private TiledMapRenderer mapRenderer;
@@ -39,7 +39,7 @@ public class SketchExample extends ApplicationAdapter
 	private OrthographicCamera camera;
 	private Viewport viewport;
 
-	public SketchExample() {
+	public AssetsTiledExample() {
 		super();
 	}
 	
