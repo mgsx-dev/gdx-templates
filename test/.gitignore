@@ -126,7 +126,8 @@ Thumbs.db
 /bin/
 
 /assets/maps
-/assets/skins/*.png
-/assets/skins/*.atlas
-/assets/skins/*.fnt
-/assets/bg.png
+/assets/**/*.png
+/assets/**/*.atlas
+/assets/**/*.fnt
+*.blend1
+*.blend2

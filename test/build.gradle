@@ -56,6 +56,13 @@ assetsTasks << packTask
 
 assetsTasks << blenderRenderFrame("assets-src/bg.blend", 1, "$projectDir/assets/bg.png")
 
+def renderAnimTask = blenderRenderAnimation("assets-src/anims.blend", "$buildDir/animations/anim")
+
+def packAnimsTask = gdxAtlasPack("$buildDir/animations", "assets/animations")
+packAnimsTask.dependsOn << renderAnimTask
+
+assetsTasks << packAnimsTask
+
 task generateAssets(dependsOn: assetsTasks, group: "gdx"){}
 
 apply plugin: "eclipse"
