@@ -1,17 +1,58 @@
 buildscript {
+	repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        jcenter()
+    }
 	apply from: 'gradle/tiled.gradle'
+	apply from: 'gradle/hiero.gradle'
+	apply from: 'gradle/atlas.gradle'
+	apply from: 'gradle/raw.gradle'
+	apply from: 'gradle/gimp.gradle'
+	apply from: 'gradle/inkscape.gradle'
+	apply from: 'gradle/blender.gradle'
 }
 
+apply plugin: 'base'
+
+eclipse.project {
+    name = appName + "-assets"
+}
 
 /** usage example :
 
-task buildAssets(){}
+task buildAssets(group: 'gdx'){}
 
 // TILED :
-buildAssets.dependsOn += tiledMapPacker("src/maps", "$projectDir/../android/assets/maps")
+buildAssets.dependsOn << tiledMapPacker("src/maps", "$projectDir/../android/assets/maps")
 
 // GIMP :
-buildAssets.dependsOn += gimpExport("src/gimpBaseFileNameWithoutExtension", "../android/assets/exported.png")
-buildAssets.dependsOn += gimpExportLayers("src/gimpBaseFileNameWithoutExtension", "../android/assets/existingFolder")
+buildAssets.dependsOn << gimpExport("src/gimpBaseFileNameWithoutExtension", "../android/assets/exported.png")
+buildAssets.dependsOn << gimpExportLayers("src/gimpBaseFileNameWithoutExtension", "../android/assets/existingFolder")
+
+// INKSCAPE :
+buildAssets.dependsOn << inkscapeExport("src/skin/panel.9.svg", "$buildDir/skin")
+
+// HIERO :
+buildAssets.dependsOn << gdxHieroExport("src/skin/default.hiero", "$buildDir/skin")
+
+// RAW COPY :
+buildAssets.dependsOn << gdxRawCopy("src/skin", "$buildDir/skin")
+
+// BLENDER :
+buildAssets.dependsOn << blenderRenderFrame("src/thing.blend", 1, "$buildDir/unpacked/thing.png")
+buildAssets.dependsOn << blenderRenderAnimation("src/hero.blend", 1, "$buildDir/unpacked/hero")
+
+// ATLAS
+buildAssets.dependsOn << gdxAtlasPack("$buildDir/unpacked", "../android/assets/sprite-sheets")
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+// NOTE : Examples above are independent tasks. You may need to properly configure tasks ordering
+// especially when using texture packing. See example below :
+
+def packingTask = gdxAtlasPack("$buildDir/unpacked", "../android/assets/sprite-sheets")
+packingTask.dependsOn += [heroFramesTask, enemyFramesTask, explosionFramesTask]
+buildAssets.dependsOn << packingTask
 
 */
