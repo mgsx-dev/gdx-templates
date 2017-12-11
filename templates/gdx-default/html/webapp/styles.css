@@ -5,6 +5,8 @@ canvas {
 
 body {
     background-color: #222222;
+    margin: 0px;
+    overflow: hidden;
 }
 
 .superdev {

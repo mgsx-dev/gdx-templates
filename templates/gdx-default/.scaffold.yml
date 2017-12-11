@@ -16,6 +16,7 @@ files:
   - "html/src/GdxDefinition.gwt.xml.erb:html/src/GdxDefinition.gwt.xml"
   - "html/src/GdxDefinitionSuperdev.gwt.xml.erb:html/src/GdxDefinitionSuperdev.gwt.xml"
   - "html/build.gradle.erb:html/build.gradle"
+  - "html/webapp/index.html.erb:html/webapp/index.html"
   
   
   
