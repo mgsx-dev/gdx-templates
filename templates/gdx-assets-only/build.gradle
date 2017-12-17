@@ -16,9 +16,11 @@ buildscript {
 
 apply plugin: 'base'
 
+/*
 eclipse.project {
     name = appName + "-assets"
 }
+*/
 
 /** usage example :
 
