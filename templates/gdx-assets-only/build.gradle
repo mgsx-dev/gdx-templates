@@ -44,7 +44,7 @@ buildAssets.dependsOn << gdxRawCopy("src/skin", "$buildDir/skin")
 
 // BLENDER :
 buildAssets.dependsOn << blenderRenderFrame("src/thing.blend", 1, "$buildDir/unpacked/thing.png")
-buildAssets.dependsOn << blenderRenderAnimation("src/hero.blend", 1, "$buildDir/unpacked/hero")
+buildAssets.dependsOn << blenderRenderAnimation("src/hero.blend", "$buildDir/unpacked/hero")
 
 // ATLAS
 buildAssets.dependsOn << gdxAtlasPack("$buildDir/unpacked", "../android/assets/sprite-sheets")
