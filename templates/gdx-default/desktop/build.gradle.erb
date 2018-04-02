@@ -4,7 +4,7 @@ sourceCompatibility = 1.6
 sourceSets.main.java.srcDirs = [ "src/" ]
 sourceSets.test.java.srcDirs = [ "test/" ]
 
-project.ext.mainClassName = "<%= packageName %>.desktop.DesktopLauncher"
+project.ext.mainClassName = "<%= packageName %>.DesktopLauncher"
 project.ext.assetsDir = new File("../android/assets");
 
 task run(dependsOn: classes, type: JavaExec) {
@@ -29,10 +29,19 @@ task dist(type: Jar) {
     from files(sourceSets.main.output.resourcesDir)
     from {configurations.compile.collect {zipTree(it)}}
     from files(project.assetsDir);
- 
+ 	
+ 	// additional files could be added like this :
+ 	// from file("$projectDir/LICENSE");
+    
+    // final JAR basename could be modified like this (default is project name) :
+ 	// baseName = "my-custom-game-name"
+
     manifest {
         attributes 'Main-Class': project.mainClassName
     }
+    doLast { 
+    	file(archivePath).setExecutable(true, false) 
+    } 
 }
 
 dist.dependsOn classes
