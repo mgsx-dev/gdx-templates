@@ -39,11 +39,13 @@ def gdxHieroEdit(src){
 def gdxHieroExport(src, dst){
 	gdxHieroEdit(src)
 	task "gdxHieroExport_$src"(type: Exec, dependsOn: gdxHieroDownload, group: 'gdx'){
-		new File(dst).mkdirs()
 		def inFile = new File(src)
 		def name = inFile.name.take(inFile.name.lastIndexOf('.'))
 		def outFile1 = new File("$dst/$name" + ".png")
 		def outFile2 = new File("$dst/$name" + ".fnt")
+		doFirst{
+			new File(dst).mkdirs()
+		}
 		commandLine 'java', '-jar', gdxHieroLocalPath(), '-b', '-i', inFile, '-o', "$dst/$name"
 		outputs.upToDateWhen { outFile1.exists() && inFile.lastModified() < outFile1.lastModified() && outFile2.exists() && inFile.lastModified() < outFile2.lastModified() }
 	}
