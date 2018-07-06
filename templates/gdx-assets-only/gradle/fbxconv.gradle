@@ -27,6 +27,7 @@ def fbxConvTask(src, dst, binary = false){
 	  	def inFile = new File("$projectDir/$src") // TODO src may be in $buildDir (typical) so don't use $projectDir reference
 	  	def name = inFile.name.take(inFile.name.lastIndexOf('.'))
 	  	def outFile = new File("$projectDir/$dst")
+	  	outFile.getParentFile().mkdirs()
 	  	def type = binary ? 'G3DB' : 'G3DJ'
 	  	// -f option to flip V texture coordinates from blender
 		commandLine 'fbx-conv', '-f', '-o', type, '-v', "$inFile", "$outFile"
