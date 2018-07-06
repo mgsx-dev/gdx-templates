@@ -3,6 +3,7 @@ import bpy
 
 output,*_ = sys.argv[sys.argv.index("--") + 1:]
 
+bpy.ops.object.mode_set(mode='OBJECT')
 bpy.ops.object.select_all(action='DESELECT')
 
 for object in bpy.context.scene.objects:
