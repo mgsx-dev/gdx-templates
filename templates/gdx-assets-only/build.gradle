@@ -36,6 +36,7 @@ buildAssets.dependsOn << gimpExportLayers("src/gimpBaseFileNameWithoutExtension"
 
 // INKSCAPE :
 buildAssets.dependsOn << inkscapeExport("src/skin/panel.9.svg", "$buildDir/skin")
+buildAssets.dependsOn << inkscapeExportLayers("src/skin/button.svg", "$buildDir/skin/button-front.png", ["layer-back", "layer-A"])
 
 // HIERO :
 buildAssets.dependsOn << gdxHieroExport("src/skin/default.hiero", "$buildDir/skin")
