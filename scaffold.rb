@@ -96,7 +96,7 @@ def do_template(template, infolder, outfolder, vars)
             template[:vars]["#{k}CamelUp"] = v
             template[:vars]["#{k}CamelDown"] = v
         else
-            raise "unrecognized var #{k}"
+            raise "unrecognized var #{k} in #{template[:vars]}"
         end
     end
     template[:folders].each do |src,dst|
