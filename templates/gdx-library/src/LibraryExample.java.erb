@@ -1,0 +1,12 @@
+package <%= packageName %>;
+
+import com.badlogic.gdx.Gdx;
+
+public class <%= libName %>
+{
+	public boolean perform(){
+        if(Gdx.app != null) Gdx.app.log("GdxAnalytics", "calling perform");
+        // TODO implements
+		return true;
+	}
+}

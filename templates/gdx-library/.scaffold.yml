@@ -1,0 +1,11 @@
+files:
+  - "src/LibraryExample.java.erb:src/$(libName).java"
+  - "test/LibraryExampleTest.java.erb:test/$(libName)Test.java"
+  - "test/LibraryExampleIntegrationTests.java.erb:test/$(libName)IntegrationTests.java"
+folders:
+  - "src:src/$(packagePath)"
+  - "test:test/$(packagePath)"
+defaults:
+  artifact: gdx-library-example
+  lib: LibraryExample
+  package: net.mgsx.library.example
