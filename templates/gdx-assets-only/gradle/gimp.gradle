@@ -12,7 +12,7 @@ apply plugin: 'base'
 
 def gimpExport(src, dst){
 
-	task "gimpExport_$src"(type: Exec){
+	def t = task "gimpExport_$src"(type: Exec){
 		commandLine 'gimp', '-i', '--batch-interpreter=python-fu-eval', '-b', '-'
 		def script = """\
 import gimpfu
@@ -32,13 +32,20 @@ pdb.gimp_quit(1)
 """
 		standardInput = new ByteArrayInputStream(script.getBytes())
 	}
+	
+	t.doFirst { 
+		new File(dst).parent.mkdirs()
+	}
+
+
+	return t
 
 }
 
 
 def gimpExportLayers(src, dst){
 
-	task "gimpExportLayers_$src"(type: Exec){
+	def t = task "gimpExportLayers_$src"(type: Exec){
 		commandLine 'gimp', '-i', '--batch-interpreter=python-fu-eval', '-b', '-'
 		def script = """\
 import gimpfu
@@ -57,7 +64,13 @@ pdb.gimp_quit(1)
 """
 		standardInput = new ByteArrayInputStream(script.getBytes())
 	}
+	
+	t.doFirst { 
+		new File(dst).mkdirs()
+	}
 
+
+	return t
 }
 
 ext {
