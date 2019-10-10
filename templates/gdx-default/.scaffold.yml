@@ -12,6 +12,10 @@ files:
   - "desktop/src/desktop/DesktopLauncher.java.erb:desktop/src/desktop/DesktopLauncher.java"
   - "desktop/build.gradle.erb:desktop/build.gradle"
   
+  - "desktop2/src/desktop/DesktopLauncher.java.erb:desktop2/src/desktop/DesktopLauncher.java"
+  - "desktop2/src/desktop/Sync.java.erb:desktop2/src/desktop/Sync.java"
+  - "desktop2/build.gradle.erb:desktop2/build.gradle"
+  
   - "html/src/client/HtmlLauncher.java.erb:html/src/client/HtmlLauncher.java"
   - "html/src/GdxDefinition.gwt.xml.erb:html/src/GdxDefinition.gwt.xml"
   - "html/src/GdxDefinitionSuperdev.gwt.xml.erb:html/src/GdxDefinitionSuperdev.gwt.xml"
@@ -24,6 +28,7 @@ folders:
   - "core/src/core:core/src/$(packagePath)"
   - "android/src:android/src/$(packagePath)"
   - "desktop/src/desktop:desktop/src/$(packagePath)"
+  - "desktop2/src/desktop:desktop2/src/$(packagePath)"
   - "html/src:html/src/$(packagePath)"
   - "html/src/client:html/src/$(packagePath)/client"
 defaults:
