@@ -14,8 +14,6 @@ require 'ruby', and few extra gems :
 
 ### Auto Assets
 
-TODO migrate assets scripts from default to assets-only template
-
 supported tools : 
 
 * blender
